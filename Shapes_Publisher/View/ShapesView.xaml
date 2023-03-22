@@ -8,15 +8,15 @@
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
 
-        <TextBlock Text="MSMQ PUBLISHER"  FontSize="34" FontWeight="Bold" DockPanel.Dock="Top"/>
-        <ListBox Margin="10">
+        <TextBlock Text="MSMQ PUBLISHER"  FontSize="30" Margin="220,12" FontWeight="Bold" DockPanel.Dock="Top"/>
+        <ListBox x:Name="lstBox" Margin="10">
             <Rectangle x:Name="rect" Margin="10" Height="50" Width="50" Stroke="Black"/>
             <Ellipse Margin="10" Height="50" Stroke="Black" Width="50" />
             <Line Margin="10" X2="50" Y2="80" Stroke="Black"/>
             <Rectangle Margin="10" Height="50" Width="120" Stroke="Black"/>
         </ListBox>
-        <Border BorderBrush="DarkBlue" BorderThickness="2" DockPanel.Dock="Bottom">
-            <Canvas ></Canvas>
+        <Border BorderBrush="DarkBlue" BorderThickness="2">
+            <Canvas x:Name="canvas" MouseLeftButtonDown="canvas_MouseLeftButtonDown" Background="Transparent"></Canvas>
         </Border>
 
     </DockPanel>

@@ -29,5 +29,28 @@ namespace Shapes_Publisher.View
             DataContext = vm = new ShapeViewModel();
         }
 
+        private void canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var position = e.GetPosition(canvas);
+            var selectedShape = lstBox.SelectedItem as Shape;
+
+            if (selectedShape == null) return;
+            var shape = Activator.CreateInstance(selectedShape.GetType()) as Shape;
+
+            if (shape == null) return;
+            shape.Width = selectedShape.Width;
+            shape.Height = selectedShape.Height;
+            shape.Stroke = selectedShape.Stroke;
+
+            var size = new Size(selectedShape.Width, selectedShape.Height);
+            shape.Measure(size);
+            shape.Arrange(new Rect(size));
+            shape.UpdateLayout();
+
+            Canvas.SetLeft(shape, position.X);
+            Canvas.SetTop(shape, position.Y);
+
+            canvas.Children.Add(shape);
+        }
     }
 }

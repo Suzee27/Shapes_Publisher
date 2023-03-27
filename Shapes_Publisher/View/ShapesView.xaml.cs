@@ -51,6 +51,7 @@ namespace Shapes_Publisher.View
             Canvas.SetTop(shape, position.Y);
 
             canvas.Children.Add(shape);
+            vm.Publish(shape, position.X, position.Y);
         }
     }
 }
